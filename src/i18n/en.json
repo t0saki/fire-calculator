@@ -1,0 +1,110 @@
+{
+  "app": {
+    "title": "FIRE Calculator",
+    "subtitle": "Financial Independence, Retire Early"
+  },
+  "nav": {
+    "calculator": "Calculator",
+    "comparison": "Compare"
+  },
+  "inputs": {
+    "basicInfo": "Basic Info",
+    "currentAge": "Current Age",
+    "targetRetireAge": "Target Retirement Age",
+    "currentSavings": "Current Savings / Investments",
+    "monthlyIncome": "Monthly Income (pre-tax)",
+    "monthlyExpenses": "Monthly Expenses",
+    "taxRegion": "Tax Region",
+    "monthlyTax": "Monthly Tax",
+    "afterTaxIncome": "After-tax Income",
+    "effectiveTaxRate": "Effective Tax Rate",
+    "salaryGrowthRate": "Annual Salary Growth",
+    "investmentParams": "Investment Parameters",
+    "annualReturnRate": "Expected Annual Return",
+    "inflationRate": "Expected Inflation Rate",
+    "safeWithdrawalRate": "Safe Withdrawal Rate (SWR)",
+    "capitalGainsTaxRate": "Capital Gains Tax Rate",
+    "currency": "Currency",
+    "years": "yrs",
+    "percentage": "%"
+  },
+  "fireTypes": {
+    "title": "FIRE Types",
+    "lean": "Lean FIRE",
+    "leanDesc": "Minimal lifestyle (expenses×0.6)",
+    "regular": "Regular FIRE",
+    "regularDesc": "Maintain current lifestyle",
+    "fat": "Fat FIRE",
+    "fatDesc": "Comfortable lifestyle (expenses×1.5)",
+    "coast": "Coast FIRE",
+    "coastDesc": "Stop contributing, still reach target",
+    "barista": "Barista FIRE",
+    "baristaDesc": "Part-time work covers expenses"
+  },
+  "lifeEvents": {
+    "title": "Life Events",
+    "addEvent": "Add Event",
+    "name": "Event Name",
+    "type": "Type",
+    "amount": "Amount",
+    "age": "Age",
+    "oneTimeIncome": "One-time Income",
+    "oneTimeExpense": "One-time Expense",
+    "incomeChange": "Income Change",
+    "expenseChange": "Expense Change",
+    "passiveIncome": "Passive Income (yearly)",
+    "remove": "Remove"
+  },
+  "results": {
+    "summary": "FIRE Summary",
+    "fireNumber": "FIRE Target",
+    "yearsToFire": "Years to FIRE",
+    "fireDate": "Projected FIRE Date",
+    "savingsRate": "Savings Rate",
+    "year": "yr",
+    "years": "yrs",
+    "wealthChart": "Wealth Projection",
+    "savings": "Total Savings",
+    "fireTarget": "FIRE Target",
+    "contributions": "Total Contributions",
+    "returns": "Investment Returns",
+    "fireTypeComparison": "FIRE Type Comparison",
+    "targetAmount": "Target Amount",
+    "yearsNeeded": "Years Needed",
+    "monthlyExpense": "Monthly Expense"
+  },
+  "monteCarlo": {
+    "title": "Monte Carlo Simulation",
+    "simulations": "Simulations",
+    "volatility": "Market Volatility (Std Dev)",
+    "run": "Run Simulation",
+    "running": "Simulating...",
+    "successRate": "Success Rate",
+    "successDesc": "Probability of not running out of money",
+    "percentiles": "Wealth Distribution",
+    "p10": "Pessimistic (P10)",
+    "p25": "Conservative (P25)",
+    "p50": "Median (P50)",
+    "p75": "Optimistic (P75)",
+    "p90": "Best Case (P90)"
+  },
+  "scenarios": {
+    "title": "Scenario Comparison",
+    "addScenario": "Add Scenario",
+    "duplicate": "Duplicate",
+    "remove": "Remove",
+    "scenario": "Scenario",
+    "comparisonChart": "Comparison Chart",
+    "comparisonTable": "Comparison Table",
+    "maxScenarios": "Maximum 4 scenarios"
+  },
+  "actions": {
+    "export": "Export Config",
+    "import": "Import Config",
+    "reset": "Reset"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

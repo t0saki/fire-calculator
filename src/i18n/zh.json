@@ -1,0 +1,110 @@
+{
+  "app": {
+    "title": "FIRE 计算器",
+    "subtitle": "财务自由，提前退休"
+  },
+  "nav": {
+    "calculator": "计算器",
+    "comparison": "场景对比"
+  },
+  "inputs": {
+    "basicInfo": "基础信息",
+    "currentAge": "当前年龄",
+    "targetRetireAge": "目标退休年龄",
+    "currentSavings": "当前储蓄/投资总额",
+    "monthlyIncome": "月收入（税前）",
+    "monthlyExpenses": "月支出",
+    "taxRegion": "税制地区",
+    "monthlyTax": "月缴个税",
+    "afterTaxIncome": "税后月收入",
+    "effectiveTaxRate": "实际税率",
+    "salaryGrowthRate": "年薪资增长率",
+    "investmentParams": "投资参数",
+    "annualReturnRate": "预期年化收益率",
+    "inflationRate": "预期通胀率",
+    "safeWithdrawalRate": "安全提取率 (SWR)",
+    "capitalGainsTaxRate": "投资收益税率",
+    "currency": "币种",
+    "years": "岁",
+    "percentage": "%"
+  },
+  "fireTypes": {
+    "title": "FIRE 类型",
+    "lean": "精益 FIRE",
+    "leanDesc": "最低限度生活 (支出×0.6)",
+    "regular": "标准 FIRE",
+    "regularDesc": "维持当前生活水平",
+    "fat": "富裕 FIRE",
+    "fatDesc": "宽裕生活 (支出×1.5)",
+    "coast": "滑行 FIRE",
+    "coastDesc": "停止投入也能达标的节点",
+    "barista": "兼职 FIRE",
+    "baristaDesc": "仅需兼职覆盖日常支出"
+  },
+  "lifeEvents": {
+    "title": "生命事件",
+    "addEvent": "添加事件",
+    "name": "事件名称",
+    "type": "类型",
+    "amount": "金额",
+    "age": "发生年龄",
+    "oneTimeIncome": "一次性收入",
+    "oneTimeExpense": "一次性支出",
+    "incomeChange": "收入变化",
+    "expenseChange": "支出变化",
+    "passiveIncome": "被动收入（每年）",
+    "remove": "删除"
+  },
+  "results": {
+    "summary": "FIRE 摘要",
+    "fireNumber": "FIRE 目标金额",
+    "yearsToFire": "达成所需年数",
+    "fireDate": "预计达成日期",
+    "savingsRate": "储蓄率",
+    "year": "年",
+    "years": "年",
+    "wealthChart": "财富增长曲线",
+    "savings": "储蓄总额",
+    "fireTarget": "FIRE 目标",
+    "contributions": "累计投入",
+    "returns": "投资收益",
+    "fireTypeComparison": "FIRE 类型对比",
+    "targetAmount": "目标金额",
+    "yearsNeeded": "所需年数",
+    "monthlyExpense": "月支出标准"
+  },
+  "monteCarlo": {
+    "title": "蒙特卡洛模拟",
+    "simulations": "模拟次数",
+    "volatility": "市场波动率（标准差）",
+    "run": "运行模拟",
+    "running": "模拟中...",
+    "successRate": "成功率",
+    "successDesc": "退休后资金不耗尽的概率",
+    "percentiles": "财富分布区间",
+    "p10": "悲观 (P10)",
+    "p25": "保守 (P25)",
+    "p50": "中位数 (P50)",
+    "p75": "乐观 (P75)",
+    "p90": "最优 (P90)"
+  },
+  "scenarios": {
+    "title": "场景对比",
+    "addScenario": "添加场景",
+    "duplicate": "复制",
+    "remove": "删除",
+    "scenario": "场景",
+    "comparisonChart": "对比图表",
+    "comparisonTable": "对比表格",
+    "maxScenarios": "最多支持 4 个场景"
+  },
+  "actions": {
+    "export": "导出配置",
+    "import": "导入配置",
+    "reset": "重置"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色"
+  }
+}
