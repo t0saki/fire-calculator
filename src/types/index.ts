@@ -32,6 +32,7 @@ export interface CalculatorInputs {
   taxRegion: TaxRegion
   salaryGrowthRate: number
   capitalGainsTaxRate: number
+  retiredExpenseRatio: number
   lifeEvents: LifeEvent[]
 }
 
@@ -101,6 +102,7 @@ export const DEFAULT_INPUTS: CalculatorInputs = {
   taxRegion: 'CN',
   salaryGrowthRate: 5,
   capitalGainsTaxRate: 0,
+  retiredExpenseRatio: 80,
   lifeEvents: [],
 }
 

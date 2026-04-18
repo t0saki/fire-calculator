@@ -23,6 +23,7 @@
     "annualReturnRate": "Expected Annual Return",
     "inflationRate": "Expected Inflation Rate",
     "safeWithdrawalRate": "Safe Withdrawal Rate (SWR)",
+    "retiredExpenseRatio": "Retired Expense Ratio (vs current)",
     "capitalGainsTaxRate": "Capital Gains Tax Rate",
     "currency": "Currency",
     "years": "yrs",

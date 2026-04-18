@@ -13,12 +13,14 @@ export function calculateFire(inputs: CalculatorInputs): FireResult {
     taxRegion,
     salaryGrowthRate,
     capitalGainsTaxRate,
+    retiredExpenseRatio,
     lifeEvents,
   } = inputs
 
   const realReturn = (1 + annualReturnRate / 100) / (1 + inflationRate / 100) - 1
-  const annualExpenses = monthlyExpenses * 12
-  const fireNumber = annualExpenses / (safeWithdrawalRate / 100)
+  const retiredMonthlyExpenses = monthlyExpenses * (retiredExpenseRatio / 100)
+  const retiredAnnualExpenses = retiredMonthlyExpenses * 12
+  const fireNumber = retiredAnnualExpenses / (safeWithdrawalRate / 100)
 
   const yearlyData: YearlyDataPoint[] = []
   let savings = currentSavings
@@ -34,7 +36,6 @@ export function calculateFire(inputs: CalculatorInputs): FireResult {
     const age = currentAge + year
     const eventsThisYear = lifeEvents.filter((e) => e.age === age)
 
-    // Apply life events
     for (const event of eventsThisYear) {
       switch (event.type) {
         case 'one_time_income':
@@ -56,12 +57,12 @@ export function calculateFire(inputs: CalculatorInputs): FireResult {
       }
     }
 
-    // Calculate tax on current income
     const taxResult = calculateMonthlyTax(currentPreTaxMonthlyIncome, taxRegion)
     const afterTaxMonthlyIncome = taxResult.afterTaxMonthly
 
-    const currentAnnualExpenses = currentMonthlyExpenses * 12
-    const currentFireTarget = currentAnnualExpenses / (safeWithdrawalRate / 100)
+    // FIRE target is based on retired expenses (current working expenses * ratio)
+    const currentRetiredExpenses = currentMonthlyExpenses * (retiredExpenseRatio / 100)
+    const currentFireTarget = (currentRetiredExpenses * 12) / (safeWithdrawalRate / 100)
 
     yearlyData.push({
       year,
@@ -80,21 +81,17 @@ export function calculateFire(inputs: CalculatorInputs): FireResult {
       yearsToFire = year
     }
 
-    // Grow for next year
     if (year < maxYears) {
-      // Investment returns (after capital gains tax)
       const grossReturn = savings * realReturn
       const netReturn = grossReturn > 0
         ? grossReturn * (1 - capitalGainsTaxRate / 100)
         : grossReturn
 
-      // Annual savings from after-tax income
       const annualSavings = (afterTaxMonthlyIncome - currentMonthlyExpenses) * 12 + annualPassiveIncome
 
       savings = savings + netReturn + annualSavings
       totalContributions += annualSavings
 
-      // Apply salary growth (pre-tax income grows)
       currentPreTaxMonthlyIncome *= (1 + salaryGrowthRate / 100)
     }
   }
@@ -106,7 +103,6 @@ export function calculateFire(inputs: CalculatorInputs): FireResult {
   const fireDate = new Date()
   fireDate.setFullYear(fireDate.getFullYear() + yearsToFire)
 
-  // Savings rate based on after-tax income
   const initialTax = calculateMonthlyTax(monthlyIncome, taxRegion)
   const afterTaxIncome = initialTax.afterTaxMonthly
   const savingsRate = afterTaxIncome > 0 ? ((afterTaxIncome - monthlyExpenses) / afterTaxIncome) * 100 : 0

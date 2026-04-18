@@ -23,6 +23,7 @@
     "annualReturnRate": "预期年化收益率",
     "inflationRate": "预期通胀率",
     "safeWithdrawalRate": "安全提取率 (SWR)",
+    "retiredExpenseRatio": "退休后支出比例（相对当前）",
     "capitalGainsTaxRate": "投资收益税率",
     "currency": "币种",
     "years": "岁",

@@ -40,6 +40,15 @@ export function InvestmentInputs({ inputs, onChange }: Props) {
         onValueChange={(v) => onChange('safeWithdrawalRate', v)}
       />
       <Slider
+        label={t('inputs.retiredExpenseRatio')}
+        displayValue={`${inputs.retiredExpenseRatio}%`}
+        min={30}
+        max={150}
+        step={5}
+        value={inputs.retiredExpenseRatio}
+        onValueChange={(v) => onChange('retiredExpenseRatio', v)}
+      />
+      <Slider
         label={t('inputs.capitalGainsTaxRate')}
         displayValue={`${inputs.capitalGainsTaxRate}%`}
         min={0}

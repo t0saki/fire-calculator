@@ -23,6 +23,7 @@ export function runMonteCarlo(
     taxRegion,
     salaryGrowthRate,
     capitalGainsTaxRate,
+    retiredExpenseRatio,
   } = inputs
 
   const { simulations, volatility } = config
@@ -32,7 +33,7 @@ export function runMonteCarlo(
   const yearsToRetire = Math.max(targetRetireAge - currentAge, 1)
   const retirementYears = 30
   const totalYears = yearsToRetire + retirementYears
-  const annualExpenses = monthlyExpenses * 12
+  const retiredAnnualExpenses = monthlyExpenses * (retiredExpenseRatio / 100) * 12
 
   // Pre-compute after-tax savings for each accumulation year (salary grows)
   const annualAfterTaxSavings: number[] = []
@@ -64,7 +65,7 @@ export function runMonteCarlo(
       if (year <= yearsToRetire) {
         balance = balance + netReturn + annualAfterTaxSavings[year - 1]
       } else {
-        balance = balance + netReturn - annualExpenses
+        balance = balance + netReturn - retiredAnnualExpenses
       }
 
       if (balance < 0) {

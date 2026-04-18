@@ -57,11 +57,13 @@ export function calculateFireTypes(inputs: CalculatorInputs): FireTypeResult[] {
     capitalGainsTaxRate,
   } = inputs
 
+  const retiredExpenseRatio = inputs.retiredExpenseRatio / 100
   const realReturn = (1 + annualReturnRate / 100) / (1 + inflationRate / 100) - 1
   const results: FireTypeResult[] = []
 
   for (const config of FIRE_TYPES) {
-    const adjustedMonthlyExpense = monthlyExpenses * config.expenseMultiplier
+    // Apply retired expense ratio first, then FIRE type multiplier
+    const adjustedMonthlyExpense = monthlyExpenses * retiredExpenseRatio * config.expenseMultiplier
     const annualExpenses = adjustedMonthlyExpense * 12
     const fireNumber = annualExpenses / (safeWithdrawalRate / 100)
 
@@ -79,8 +81,8 @@ export function calculateFireTypes(inputs: CalculatorInputs): FireTypeResult[] {
     })
   }
 
-  // Coast FIRE
-  const regularFireNumber = (monthlyExpenses * 12) / (safeWithdrawalRate / 100)
+  // Coast FIRE (based on retired expenses at regular level)
+  const regularFireNumber = (monthlyExpenses * retiredExpenseRatio * 12) / (safeWithdrawalRate / 100)
   const yearsToRetire = inputs.targetRetireAge - currentAge
   const coastNumber = regularFireNumber / Math.pow(1 + realReturn, yearsToRetire)
 
@@ -96,11 +98,11 @@ export function calculateFireTypes(inputs: CalculatorInputs): FireTypeResult[] {
     label: 'fireTypes.coast',
     fireNumber: Math.round(coastNumber),
     yearsToFire: coastYears,
-    monthlyExpenseUsed: Math.round(monthlyExpenses),
+    monthlyExpenseUsed: Math.round(monthlyExpenses * retiredExpenseRatio),
   })
 
-  // Barista FIRE (part-time covers 50% expenses)
-  const baristaExpenses = monthlyExpenses * 0.5
+  // Barista FIRE (part-time covers 50% of retired expenses)
+  const baristaExpenses = monthlyExpenses * retiredExpenseRatio * 0.5
   const baristaFireNumber = (baristaExpenses * 12) / (safeWithdrawalRate / 100)
   const baristaYears = simulateYearsToTarget(
     currentSavings, baristaFireNumber, monthlyIncome, monthlyExpenses,
